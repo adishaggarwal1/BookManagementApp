@@ -1,0 +1,34 @@
+﻿@using TeamB.BookManagement
+@model Author
+
+<section id="addAuthor">
+
+    <h2 >ADD NEW AUTHOR</h2>
+    <div class="form-class">
+    <form asp-action="Add" method="POST">
+
+        <label asp-for="@Model.Id" class='form-label'><b>ID</b></label>
+        <input type='text' name="Id" value="@Model.Id" class='form-control' placeholder="Enter ID" />
+
+        <label asp-for="@Model.Name" class='form-label'><b>Name</b></label>
+        <input type='text' name="Name" value="@Model.Name" class='form-control' placeholder="Enter Author Name" />
+
+        
+
+        <label asp-for="@Model.Biography" class='form-label'><b>Biography</b></label>
+        <input type='text' name="biography" value="@Model.Biography" class='form-control' placeholder="Enter Biography" />
+
+        <label asp-for="@Model.Email" class='form-label'><b>Email</b></label>
+        <input type='email' name="email" value="@Model.Email" class='form-control' placeholder="Enter Author Email" />
+
+        <label asp-for="@Model.Photo" class='form-label'><b>Photo</b></label>
+        <input type='text' name="photo" value="@Model.Photo" class='form-control' placeholder="Enter Author Photo URl" />
+
+        <div>
+
+            <input type="submit" value="Add Author" class='btn btn-primary form-control' />
+        </div>
+    </form>
+    </div>
+
+</section>
