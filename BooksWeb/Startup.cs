@@ -17,6 +17,7 @@ namespace BooksWeb
             services.AddEFBmsRepository();
             services.AddTransient<IAuthorService, PersistentAuthorService>();            
             services.AddTransient<IBookService, PersistentBookService>();
+            services.AddTransient<IReviewService, PersistentReviewService>();
 
             return services;
         }
