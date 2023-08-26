@@ -34,14 +34,13 @@
 @using TeamB.BookManagement
 @model Book
 
-
 <div>
     <div id="aboutbook">
 
         <div id="booksection">
             <div>
-                <div class='col col-md-4' id="bookimg">
-                    <img src="@Model.Cover_Photo" class="author-details-photo" />
+                <div class='col col-md-4'>
+                    <img class="bookimg" src="@Model.Cover_Photo" />
                     <h2>@Model.Title</h2>
                 </div>
             </div>
@@ -53,7 +52,6 @@
                     <button type="button" class="btn btn-primary ">Edit</button>
                 </div>
 
-
                 <div id="bookdetailsbox">
                     <p style="color:black">@Model.Description</p>
                 </div>
@@ -62,11 +60,9 @@
 
         </div>
 
-
     </div>
 
     <div id="reviews">
-
     </div>
 
 </div>
