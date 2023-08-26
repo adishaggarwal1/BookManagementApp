@@ -1,0 +1,24 @@
+﻿@using BooksWeb.ViewModels;
+@section NavPartial
+    {
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Register" asp-action="Index">Register</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">Login</a>
+    </li>
+        }
+
+@model LoginViewModel
+
+<div class="content" id="test">
+    <h1 style="color: rgb(62, 188, 234);">Login</h1>
+    <form id="LoginForm" method="POST">
+        <input type="email" id="email" name="email" value="" placeholder="Email" required class='form-control' />
+        <br>
+        <input type="password" id="password" name="password" value="" placeholder="Password" required class='form-control' />
+        <br>
+        <input class='btn btn-primary form-control' type="submit" value="Login" onclick="" asp-controller="Login" asp-action="Validate" />
+        <p> New Here? <a asp-controller="Register" asp-action="Index">Register Now</a></p>
+    </form>
+</div>
