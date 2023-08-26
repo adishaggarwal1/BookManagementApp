@@ -36,9 +36,10 @@ namespace TeamB.BookManagement
             return await repository.GetById(id);
         }
 
-        public async Task<List<Review>> GetReviewsByBook(string bookId)
+        public async Task<List<Review>> GetReviewsByBook(string Id)
         {
-            return await repository.GetAll(r => r.Book_Id == bookId);
+            var reviews = await repository.GetAll(r => r.BookId == Id);
+            return reviews;
         }
 
         public async Task<List<Review>> SearchReviews(string term)
