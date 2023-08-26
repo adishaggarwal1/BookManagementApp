@@ -1,0 +1,29 @@
+﻿@using TeamB.BookManagement;
+@model User
+@section NavPartial
+    {
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Register" asp-action="Index">Register</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">Login</a>
+    </li>
+     }
+
+<div class="content" id="test">
+    <h1 style="color: rgb(62, 188, 234);">Registration Form</h1>
+    <form id="RegisterForm">
+        <input type="text" id="username" name="name" value="" placeholder="Username" required class='form-control' />
+        <br>
+        <input type="email" id="email" name="email" value="" placeholder="Email" required class='form-control' />
+        <br>
+        <input type="password" id="password" name="password" value="" placeholder="New Password" required class='form-control' />
+        <br>
+        <input type="password" id="password" name="password" value="" placeholder="Confirm Password" required class='form-control' />
+        <br>
+        <input type="text" id="profile_photo_url" name="photo" value="" placeholder="Profile Photo" required class='form-control' />
+        <br>
+        <input class='btn btn-primary form-control' type="submit" value="Register" asp-controller="Register" asp-action="Add" />
+        <p>Already have an account? <a asp-action="Index" asp-controller="Login" asp-route-id="">Login here</a></p>
+    </form>
+</div>

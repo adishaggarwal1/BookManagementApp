@@ -18,6 +18,7 @@ namespace BooksWeb
             services.AddTransient<IAuthorService, PersistentAuthorService>();            
             services.AddTransient<IBookService, PersistentBookService>();
             services.AddTransient<IReviewService, PersistentReviewService>();
+            services.AddTransient<IUserService, PersistentUserService>();
 
             return services;
         }

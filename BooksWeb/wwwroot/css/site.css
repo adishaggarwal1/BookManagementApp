@@ -122,25 +122,35 @@ body {
             background-color: skyblue;
         }
 
-footer {
+/*footer {
     background: black;
     color: white;
     text-align: center;
     height: fit-content;
     display: flex;
+}*/
+
+#footerId {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    color: white;
+    height: fit-content;
+    background: black;
 }
 
 #socialhandles {
     display: flex;
     flex-direction: row;
     gap: 40px;
+    padding-left: 1080px;
     padding-right: 60px;
     &:hover
-
-{
-    cursor: pointer;
-}
-
+    {
+        cursor: pointer;
+    }
 }
 /*.row > * {
     flex-shrink: 0;*/
