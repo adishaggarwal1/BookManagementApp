@@ -14,6 +14,6 @@ namespace TeamB.BookManagement
         public string Details { get; set; }
         public int Rating { get; set; }
         public Book Book { get; set; }
-        public string Book_Id { get; set; }
+        public string BookId { get; set; }
     }
 }
