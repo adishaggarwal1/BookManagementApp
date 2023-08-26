@@ -1,0 +1,47 @@
+﻿@model BooksWeb.ViewModels.BookDetailsViewModel
+
+@{
+    ViewData["Title"] = "View";
+}
+
+
+<div>
+    <div id="aboutbook">
+
+        <div id="booksection">
+            <div>
+                <div class='col col-md-4' id="bookimg">
+                    <img src="@Model.Book.Cover_Photo" class="author-details-photo" />
+                    <h2>@Model.Book.Title</h2>
+                </div>
+            </div>
+
+            <div class='col col-md-8' id="bookdecription">
+
+                <div id="editdecription">
+                    <h3 style="color:white">Description</h3>
+                    <button type="button" class="btn btn-primary ">Edit</button>
+                </div>
+
+
+                <div id="bookdetailsbox">
+                    <p style="color:black">@Model.Book.Description</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div id="reviews">
+        <h3>Reviews</h3>
+        <ul>
+            @foreach (var review in Model.Reviews)
+            {
+                <li>@review.Title</li>
+            }
+        </ul>
+    </div>
+</div> 

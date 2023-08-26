@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BooksWeb.ViewModels;
+using Microsoft.AspNetCore.Mvc;
 using TeamB.BookManagement;
 
 namespace BooksWeb.Controllers
@@ -6,9 +7,11 @@ namespace BooksWeb.Controllers
     public class BookController : Controller
     {
         IBookService bookService;
-        public BookController(IBookService books)
+        IReviewService reviewService;
+        public BookController(IBookService books, IReviewService reviewService)
         {
             this.bookService = books;
+            this.reviewService = reviewService;
         }
         public async Task<ViewResult> Index()
         {
@@ -57,6 +60,21 @@ namespace BooksWeb.Controllers
         {
             await bookService.DeleteBook(id);
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> BookDetails(string Id)
+        {
+            var book = await bookService.GetBookById(Id);
+            var reviews = await reviewService.GetReviewsByBook(Id);
+
+            var vm = new BookDetailsViewModel
+            {
+                Book = book,
+                Reviews = reviews
+            };
+
+            return View(vm);
         }
     }
 }
