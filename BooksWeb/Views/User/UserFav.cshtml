@@ -1,4 +1,6 @@
-﻿@section NavBar{
+﻿@using TeamB.BookManagement;
+@model User
+@section NavBar{
 
     <li class="nav-item">
         <a class="nav-link text-dark" asp-controller="author" asp-action="index">Authors</a>
@@ -30,9 +32,12 @@
         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Logout</a>
     </li>
 }
-@{
-    ViewData["Title"] = "Privacy Policy";
-}
-<h1 class="privacy-page">@ViewData["Title"]</h1>
 
-<p id="privacy">Use this page to detail your site's privacy policy.</p>
+<section id="home">
+    <h1 class="h-primary">User@* @Model.Name *@</h1>
+    @*<img src="~/images/HomePage.jpg" height=100% width=100%>*@
+    <p>
+        "Your Favorites"
+    </p>
+    <button class="btn">Order Now</button>
+</section>

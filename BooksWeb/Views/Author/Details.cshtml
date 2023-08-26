@@ -1,12 +1,43 @@
-﻿@using TeamB.BookManagement
-@model Author
+﻿@section NavBar{
 
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="author" asp-action="index">Authors</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="author" asp-action="add">Add Authors</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="book" asp-action="index">Books</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="book" asp-action="add">Add Books</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </li>
+}
+@section NavPartial
+    {
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">Profile</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="UserFav">Favorites</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Logout</a>
+    </li>
+}
+@using TeamB.BookManagement
+@model Author
 
 <div>
     <div id="aboutauthor">
 
         <div id="authorsection">
-            <div>
+            <div class="author-details">
                 <div class='col col-md-4' id="authorimg">
                     <img src="@Model.Photo" class="author-details-photo" />
                     <h2>@Model.Name</h2>
@@ -17,9 +48,8 @@
 
                 <div id="editbio">
                     <h3 style="color:white">Biography</h3>
-                    <button type="button" class="btn btn-primary ">Edit</button>
+                    <a asp-action="edit" asp-route-id="@Model.Id" class="btn  btn-warning btn-card">EDIT</a>
                 </div>
-
 
                 <div id="authordetailsbox">
                     <p style="color:black">@Model.Biography</p>
@@ -28,14 +58,10 @@
             </div>
 
         </div>
-        
 
     </div>
 
     <div id="listofbooks">
-            
-
-
     </div>
 
 </div>

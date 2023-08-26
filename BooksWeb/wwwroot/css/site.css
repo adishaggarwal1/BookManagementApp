@@ -19,6 +19,10 @@ body {
     background: linear-gradient(90deg, rgba(7,4,64,1) 0%, rgba(9,9,121,1) 43%, rgba(63,188,213,1) 100%);
 }
 
+.topnav-right {
+    float: right;
+}
+
 #navbar {
     display: flex;
     align-items: center;
@@ -130,6 +134,11 @@ footer {
     display: flex;
 }
 
+.footer-copyright {
+    margin-left: 20px;
+    margin-right: 70%;
+}
+
 #socialhandles {
     display: flex;
     flex-direction: row;
@@ -140,7 +149,6 @@ footer {
 {
     cursor: pointer;
 }
-
 }
 /*.row > * {
     flex-shrink: 0;*/
@@ -157,7 +165,6 @@ footer {
     box-shadow: -5px -5px 5px gray;
     border-radius: 20px;
 }
-
 
 .scrolling-wrapper {
     overflow-x: scroll;
@@ -184,7 +191,6 @@ footer {
     background: rgb(37,154,156);
     background: linear-gradient(0deg, rgba(37,154,156,1) 0%, rgba(204,164,78,1) 100%);
 }
-
 }
 
 .card-block {
@@ -207,7 +213,6 @@ footer {
     background: rgb(37,154,156);
     background: linear-gradient(0deg, rgba(37,154,156,1) 0%, rgba(204,164,78,1) 100%);
 }
-
 }
 
 .btn-card {
@@ -275,9 +280,7 @@ input[type=text] {
     background-color: white;
     border: 1px solid white;
 }
-
 }
-
 
 input[type=date] {
     background: transparent;
@@ -288,7 +291,6 @@ input[type=date] {
     background-color: white;
     border: 1px solid white;
 }
-
 }
 
 input[type=email] {
@@ -300,14 +302,23 @@ input[type=email] {
     background-color: white;
     border: 1px solid white;
 }
+}
 
+input[type=password] {
+    background: transparent;
+    border: 1px solid white;
+    &:hover
+
+{
+    background-color: white;
+    border: 1px solid white;
+}
 }
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color: #909;
     font-weight: bold;
 }
-
 
 h2 {
     color: white;
@@ -343,7 +354,6 @@ p {
 {
     cursor: pointer
 }
-
 }
 
 #rightarrow {
@@ -353,13 +363,13 @@ p {
 {
     cursor: pointer
 }
-
 }
 
 #authorsection {
     display: flex;
     flex-direction: row;
     gap: 40px;
+    text-align: center;
 }
 
 #aboutauthor {
@@ -401,7 +411,6 @@ p {
     padding-top: 15px;
 }
 
-
 #booksection {
     display: flex;
     flex-direction: row;
@@ -432,6 +441,15 @@ p {
     flex-direction: row;
     gap: 48%;
     padding-bottom: 10px;
+}
+
+.book-details {
+    margin-left: 20px;
+    text-align: center;
+}
+
+.book-edit {
+    width: 60px;
 }
 
 #bookdetailsbox {

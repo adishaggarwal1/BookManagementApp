@@ -1,4 +1,10 @@
-﻿@section NavBar{
+﻿@using TeamB.BookManagement;
+@model IEnumerable<TeamB.BookManagement.User>
+
+@{
+    ViewData["Title"] = "User Home Page";
+}
+@section NavBar{
 
     <li class="nav-item">
         <a class="nav-link text-dark" asp-controller="author" asp-action="index">Authors</a>
@@ -31,8 +37,14 @@
     </li>
 }
 @{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Home Page";
 }
-<h1 class="privacy-page">@ViewData["Title"]</h1>
 
-<p id="privacy">Use this page to detail your site's privacy policy.</p>
+<section id="home">
+    <h1 class="h-primary">BOOKLAND</h1>
+    @*<img src="~/images/HomePage.jpg" height=100% width=100%>*@
+    <p>
+        "Welcome User@* @Model.Name *@"
+    </p>
+    <button class="btn">Order Now</button>
+</section>

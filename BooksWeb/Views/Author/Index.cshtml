@@ -1,4 +1,36 @@
-﻿@model IEnumerable<TeamB.BookManagement.Author>
+﻿@section NavBar{
+
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="author" asp-action="index">Authors</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="author" asp-action="add">Add Authors</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="book" asp-action="index">Books</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="book" asp-action="add">Add Books</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </li>
+}
+@section NavPartial
+    {
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">Profile</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="UserFav">Favorites</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Logout</a>
+    </li>
+}
+@model IEnumerable<TeamB.BookManagement.Author>
 
 <section id="authortoprow">
     @*<div >*@
@@ -15,9 +47,9 @@
                 <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
             </svg>
         </div>
-    
-        <div >
-            <svg  id="rightarrow" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+
+        <div>
+            <svg id="rightarrow" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
                 <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
             </svg>
         </div>
@@ -25,7 +57,6 @@
     </div>
     <div class="scrolling-wrapper row flex-row flex-nowrap mt-0 pb-0 pt-2" id="horizontalscroll">
 
-        
         @foreach (var author in Model)
         {
             <div class='col col-md-3'>
@@ -36,7 +67,7 @@
                         <p class="card-text" style="text-align:center">Author Biography</p>
                         <div class="">
                             <a asp-action="details" asp-route-id="@author.Id" class="btn  btn-info btn-card">DETAILS</a>
-                            
+
                             <a asp-action="delete" asp-route-id="@author.Id" class="btn  btn-danger btn-card" onclick="return confirm('⚠️Are you sure you want to delete this item?')">DELETE</a>
                             <a asp-action="edit" asp-route-id="@author.Id" class="btn  btn-warning btn-card ">EDIT</a>
                         </div>
@@ -45,9 +76,7 @@
             </div>
         }
     </div>
-    
 
 </section>
 
 <a asp-action="Add" class='btn-primary btn btn-sm add-new'>Add New</a>
-

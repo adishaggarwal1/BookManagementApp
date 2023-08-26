@@ -1,6 +1,37 @@
-﻿@using TeamB.BookManagement
-@model Book
+﻿@section NavBar{
 
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="author" asp-action="index">Authors</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="author" asp-action="add">Add Authors</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="book" asp-action="index">Books</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="book" asp-action="add">Add Books</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </li>
+}
+@section NavPartial
+    {
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">Profile</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="UserFav">Favorites</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Logout</a>
+    </li>
+}
+@using TeamB.BookManagement
+@model Book
 
 <div>
     <div id="aboutbook">
@@ -9,7 +40,7 @@
             <div>
                 <div class='col col-md-4' id="bookimg">
                     <img src="@Model.Cover_Photo" class="author-details-photo" />
-                    <h2>@Model.Title</h2>
+                    <h2 class="book-details">@Model.Title</h2>
                 </div>
             </div>
 
@@ -17,9 +48,8 @@
 
                 <div id="editdecription">
                     <h3 style="color:white">Description</h3>
-                    <button type="button" class="btn btn-primary ">Edit</button>
+                    <a asp-action="edit" asp-route-id="@Model.Id" class="btn  btn-warning btn-card book-edit">EDIT</a>
                 </div>
-
 
                 <div id="bookdetailsbox">
                     <p style="color:black">@Model.Description</p>
@@ -29,11 +59,9 @@
 
         </div>
 
-
     </div>
 
     <div id="reviews">
-
     </div>
 
 </div>

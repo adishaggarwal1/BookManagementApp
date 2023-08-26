@@ -1,0 +1,23 @@
+﻿@section NavPartial
+    {
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Register">Register</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Login">Login</a>
+    </li>
+        }
+
+@model IEnumerable<TeamB.BookManagement.User>
+
+<div class="content" id="test">
+    <h1 style="color: rgb(62, 188, 234);">Login</h1>
+    <form id="LoginForm" method="POST">
+        <input type="email" id="email" name="email" value="" placeholder="Email" required class='form-control' />
+        <br>
+        <input type="password" id="password" name="password" value="" placeholder="Password" required class='form-control' />
+        <br>
+        <input class='btn btn-primary form-control' type="submit" value="Login" onclick="authenticate()" asp-controller="User" asp-action="Index" />
+        <p> New Here? <a asp-controller="User" asp-action="Register" asp-route-id="">Register Now</a></p>
+    </form>
+</div>
