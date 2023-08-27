@@ -50,8 +50,8 @@
         <input type='text' name="Rating" value="@Model.Rating" class='form-control' placeholder="Enter Rating" />
 
 
-        <label asp-for="@Model.Reviewer_Email" class='form-label'>Reviewer_Email</label>
-        <input type='text' name="Reviewer_Email" value="@Model.Reviewer_Email" class='form-control' placeholder="Enter ReviewerEmail" />
+       @* <label asp-for="@Model.Reviewer_Email" class='form-label'>Reviewer_Email</label>*@
+        <input type='hidden' name="Reviewer_Email" value="@Model.Reviewer_Email" class='form-control' placeholder="Enter ReviewerEmail" readonly/>
 
         <input type='hidden' name="BookId" value="@Model.BookId" class='form-control' readonly />
 
