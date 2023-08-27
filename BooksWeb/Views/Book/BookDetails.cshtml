@@ -36,8 +36,7 @@
     ViewData["Title"] = "View";
 }
 
-
-<div>
+<div id="bookdetailbg">
     <div id="aboutbook">
 
         <div id="booksection">
@@ -52,104 +51,29 @@
 
                 <div id="editdecription">
                     <h3 style="color:white">Description</h3>
-                    <a asp-action="edit" asp-route-id="@Model.Book.Id" class="btn  btn-warning btn-card">EDIT</a>
+                    <a asp-action="edit" asp-route-id="@Model.Book.Id" class="btn  btn-info btn-card" style="width:10%;">EDIT</a>
                 </div>
-                
 
                 <div id="bookdetailsbox">
                     <p style="color:black">@Model.Book.Description</p>
                 </div>
                 <div>
-                    <h2>Author: @Model.Book.AuthorId</h2>
+                    <h2 style="padding-right:50px;">Author: @Model.Book.AuthorId</h2>
                 </div>
             </div>
 
         </div>
 
-
     </div>
 
-    <style>
-        .reviews-container {            
-            width: 80%;
-            margin: 20px auto;
-        }
-        .reviews-heading-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .reviews-heading {
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-        }
-        .add-review-button {
-            float: right;
-            cursor: pointer;
-        }
-        .review-tile {
-            margin: 10px 0;
-            padding: 10px;
-            border: 1px solid #ddd;
-            background-color: #fff;
-            display: flex;
-        }
-        .review-details {
-            flex: 3;
-            padding-right: 10px;
-        }
-        .review-details-header {
-            display: flex;
-        }
-        .review-tile-buttons {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: flex-end;
-        }
-        .review-email {
-            font-size: 18px;
-            font-weight: bold;
-            flex: 3;
-        }
-        .review-rating {
-            font-size: 18px;
-            display: flex;
-            flex: 1;
-            justify-content: center;
-            align-items: center;
-        }
-        .review-title {
-            font-size: 16px;
-            margin-top: 10px;
-        }
-        .review-description {
-            font-size: 14px;
-            color: #666;
-            margin-top: 5px;
-        }
-        .edit-button,
-        .delete-button {
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-        .edit-button {
-            color: blue;
-        }
-        .delete-button {
-            color: red;
-        }
-    </style>
     <div class="reviews-container">
         <div class="reviews-heading-container">
             <div class="reviews-heading">Reviews</div>
-            <a asp-action="add" asp-controller="review" asp-route-bookId="@Model.Book.Id" asp-route-reviewerEmail=""><button class="add-review-button" style="width:110%">Add Review</button></a>
+            <a asp-action="add" asp-controller="review" asp-route-bookId="@Model.Book.Id" asp-route-reviewerEmail="" class="btn  btn-info btn-card add-review-button">Add Review</a>
         </div>
         @foreach (var review in Model.Reviews)
         {
-            <div class="review-tile"> 
+            <div class="review-tile">
                 <div class="review-details">
                     <div class="review-details-header">
                         <div class="review-email">@review.Reviewer_Email</div>
@@ -159,10 +83,10 @@
                     <div class="review-description">@review.Details</div>
                 </div>
                 <div class="review-tile-buttons">
-                    <a asp-action="edit" asp-controller="review" asp-route-id="@review.Id"><button class="edit-button" style="width:110%">Edit</button></a>
-                    <a asp-action="delete" asp-controller="review" asp-route-id="@review.Id" asp-route-bookId="@Model.Book.Id" onclick="return confirm('Are you sure you want to delete this review?')"><button class="delete-button" style="width:110%">Delete</button></a>
+                    <a asp-action="edit" asp-controller="review" asp-route-id="@review.Id" class="btn  btn-info btn-card edit-button">Edit</a>
+                    <a asp-action="delete" asp-controller="review" asp-route-id="@review.Id" asp-route-bookId="@Model.Book.Id" onclick="return confirm('Are you sure you want to delete this review?')" class="btn  btn-danger btn-card delete-button">Delete</a>
                 </div>
             </div>
         }
     </div>
-</div> 
+</div>
