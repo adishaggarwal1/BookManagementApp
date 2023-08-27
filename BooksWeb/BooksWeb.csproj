@@ -13,6 +13,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.10" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
 
@@ -23,12 +24,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\Author\Add.cshtml" />
-    <None Include="Views\Author\Edit.cshtml" />
+    <None Include="Views\Author\OldAdd.cshtml" />
+    <None Include="Views\Author\OldEdit.cshtml" />
     <None Include="Views\Author\Index.cshtml" />
-    <None Include="Views\Book\Add.cshtml" />
+    <None Include="Views\Book\OldAdd.cshtml" />
     <None Include="Views\Book\Details.cshtml" />
-    <None Include="Views\Book\Edit.cshtml" />
+    <None Include="Views\Book\OldEdit.cshtml" />
     <None Include="Views\Book\Index.cshtml" />
   </ItemGroup>
 

@@ -36,24 +36,46 @@ namespace BooksWeb.Controllers
         [HttpPost]
         public async Task<ActionResult> Add(Book book)
         {
-            await bookService.AddBook(book);
-
-            return RedirectToAction("Index");
+            if(ModelState.ErrorCount == 1 && ModelState["Author"].Errors.Count == 1)
+            {
+                await bookService.AddBook(book);
+                return RedirectToAction("Index");
+            }
+            return View(book);
         }
 
         [HttpGet]
         public async Task<ViewResult> Edit(string id)
         {
-            var author = await bookService.GetBookById(id);
-            return View(author);
+            var book = await bookService.GetBookById(id);
+            var vm = new EditBookViewModel()
+            {
+                Id = book.Id,
+                Title = book.Title,
+                Cover_Photo = book.Cover_Photo,
+                Description = book.Description,
+                AuthorId = book.AuthorId,
+            };
+            return View(vm);
         }
 
         [HttpPost]
-        public async Task<ActionResult> Edit(Book book)
+        public async Task<ActionResult> Edit(EditBookViewModel vm)
         {
-            await bookService.UpdateBook(book);
-
-            return RedirectToAction("BookDetails", new { Id = book.Id });
+            if(ModelState.ErrorCount == 1 && ModelState["Author"].Errors.Count == 1) 
+            {
+                var book = new Book()
+                {
+                    Id = vm.Id,
+                    Title = vm.Title,
+                    Cover_Photo = vm.Cover_Photo,
+                    Description = vm.Description,
+                    AuthorId = vm.AuthorId,
+                };
+                await bookService.UpdateBook(book);
+                return RedirectToAction("BookDetails", new { Id = book.Id });
+            }
+            return View(vm);
         }
 
         public async Task<ActionResult> Delete(string id)

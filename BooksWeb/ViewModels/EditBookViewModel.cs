@@ -1,10 +1,10 @@
-﻿using TeamB.Utils;
+﻿using TeamB.BookManagement;
+using TeamB.Utils;
 
-namespace TeamB.BookManagement
+namespace BooksWeb.ViewModels
 {
-    public class Book
+    public class EditBookViewModel
     {
-        [UniqueBookId]
         public string Id { get; set; }
 
         public string Title { get; set; }
@@ -16,10 +16,5 @@ namespace TeamB.BookManagement
 
         public Author Author { get; set; }
         public string AuthorId { get; set; }
-
-        public override string ToString()
-        {
-            return $"Book[Id={Id} , Title={Title} ]";
-        }
     }
 }

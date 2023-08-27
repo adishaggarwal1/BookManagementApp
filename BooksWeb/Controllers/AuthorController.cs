@@ -50,15 +50,34 @@ namespace BooksWeb.Controllers
         public async Task<ViewResult> Edit(string id)
         {
             var author = await authorService.GetAuthorById(id);
-            return View(author);
+            var vm = new EditAuthorViewModel()
+            {
+                Id = author.Id,
+                Name = author.Name,
+                Biography = author.Biography,
+                Photo = author.Photo,
+                Email = author.Email
+            };
+            return View(vm);
         }
 
         [HttpPost]
-        public async Task<ActionResult> Edit(Author author)
+        public async Task<ActionResult> Edit(EditAuthorViewModel vm)
         {
-            await authorService.UpdateAuthor(author);
-
-            return RedirectToAction("AuthorDetails", new { Id = author.Id });
+            if(ModelState.IsValid)
+            {
+                var author = new Author()
+                {
+                    Id = vm.Id,
+                    Name = vm.Name,
+                    Biography = vm.Biography,
+                    Photo = vm.Photo,
+                    Email = vm.Email
+                };
+                await authorService.UpdateAuthor(author);
+                return RedirectToAction("AuthorDetails", new { Id = author.Id });
+            }
+            return View(vm);
         }
 
         public async Task<ActionResult> Delete(string id)

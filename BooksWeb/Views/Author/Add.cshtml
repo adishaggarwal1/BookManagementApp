@@ -31,37 +31,53 @@
     </li>
 }
 
-@using TeamB.BookManagement
-@model Author
+@model TeamB.BookManagement.Author
+
+@{
+    ViewData["Title"] = "View";
+}
+
 
 <section id="addAuthor">
 
-    <h2 >ADD NEW AUTHOR</h2>
+    <h2>ADD NEW AUTHOR</h2>
     <div class="form-class">
-    <form asp-action="Add" method="POST">
-
-        <label asp-for="@Model.Id" class='form-label'><b>ID</b></label>
-        <input type='text' name="Id" value="@Model.Id" class='form-control' placeholder="Enter ID" />
-
-        <label asp-for="@Model.Name" class='form-label'><b>Name</b></label>
-        <input type='text' name="Name" value="@Model.Name" class='form-control' placeholder="Enter Author Name" />
-
-        
-
-        <label asp-for="@Model.Biography" class='form-label'><b>Biography</b></label>
-        <input type='text' name="biography" value="@Model.Biography" class='form-control' placeholder="Enter Biography" />
-
-        <label asp-for="@Model.Email" class='form-label'><b>Email</b></label>
-        <input type='email' name="email" value="@Model.Email" class='form-control' placeholder="Enter Author Email" />
-
-        <label asp-for="@Model.Photo" class='form-label'><b>Photo</b></label>
-        <input type='text' name="photo" value="@Model.Photo" class='form-control' placeholder="Enter Author Photo URl" />
-
-        <div>
-
-            <input type="submit" value="Add Author" class='btn btn-primary form-control' />
-        </div>
-    </form>
+        <form asp-action="Add" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Biography" class="control-label"></label>
+                <input asp-for="Biography" class="form-control" />
+                <span asp-validation-for="Biography" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Photo" class="control-label"></label>
+                <input asp-for="Photo" class="form-control" />
+                <span asp-validation-for="Photo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add Author" class="btn btn-primary" />
+            </div>
+        </form>
     </div>
-
 </section>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

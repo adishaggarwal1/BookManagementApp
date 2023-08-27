@@ -1,11 +1,11 @@
 ﻿using DataAnnotationsExtensions;
+using TeamB.BookManagement;
 using TeamB.Utils;
 
-namespace TeamB.BookManagement
+namespace BooksWeb.ViewModels
 {
-    public class Author
+    public class EditAuthorViewModel
     {
-        [UniqueAuthorId]
         public string Id { get; set; }
 
         public string Name { get; set; }
@@ -17,10 +17,5 @@ namespace TeamB.BookManagement
 
         [Email]
         public string? Email { get; set; }
-
-        public override string ToString()
-        {
-            return $"Author[Id={Id} , Name={Name} ]";
-        }
     }
 }

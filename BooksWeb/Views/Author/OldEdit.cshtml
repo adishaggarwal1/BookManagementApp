@@ -1,0 +1,66 @@
+﻿@section NavBar{
+
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="author" asp-action="index">Authors</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="author" asp-action="add">Add Authors</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="book" asp-action="index">Books</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="book" asp-action="add">Add Books</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </li>
+}
+@section NavPartial
+    {
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">Profile</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="UserFav">Favorites</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Logout</a>
+    </li>
+}
+@using TeamB.BookManagement
+@model Author
+
+<h2>Update Author</h2>
+
+
+<form asp-action="Edit" method="POST">
+
+    <!--<label asp-for="@Model.Id" class='form-label'>Id</label>-->
+    <input type='hidden' name="Id" value="@Model.Id" class='form-control' readonly />
+
+    <label asp-for="@Model.Name" class='form-label'>Name</label>
+    <input type='text' name="Name" value="@Model.Name" class='form-control' />
+
+    
+
+
+    <label asp-for="@Model.Biography" class='form-label'>Biography</label>
+    <input type='text' name="biography" value="@Model.Biography" class='form-control' />
+
+    <label asp-for="@Model.Email" class='form-label'>Email</label>
+    <input type='text' name="email" value="@Model.Email" class='form-control' />
+
+    <label asp-for="@Model.Photo" class='form-label'>Photo</label>
+    <input type='text' name="photo" value="@Model.Photo" class='form-control' />
+
+
+
+
+    <div>
+
+        <input type="submit" value="Update Author" class='btn btn-primary form-control' />
+    </div>
+</form>

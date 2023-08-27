@@ -31,38 +31,45 @@
     </li>
 }
 
-@using TeamB.BookManagement
-@model Book
+@model TeamB.BookManagement.Book
+
 
 <section id="addAuthor">
-<h2 style="text-align:center;">ADD NEW BOOK</h2>
+    <h2 style="text-align:center;">ADD NEW BOOK</h2>
+        <form asp-action="Add" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cover_Photo" class="control-label"></label>
+                <input asp-for="Cover_Photo" class="form-control" />
+                <span asp-validation-for="Cover_Photo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AuthorId" class="control-label"></label>
+                <input asp-for="AuthorId" class="form-control" />
+                <span asp-validation-for="AuthorId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add Book" class="btn btn-primary" />
+            </div>
+        </form>
+    </section>
 
 
-<form asp-action="Add" method="POST">
-
-    <label asp-for="@Model.Id" class='form-label'>Id</label>
-        <input type='text' name="Id" value="@Model.Id" class='form-control' placeholder="Enter Book ID" />
-
-    <label asp-for="@Model.Title" class='form-label'>Title</label>
-        <input type='text' name="Title" value="@Model.Title" class='form-control' placeholder="Enter Book Title" />
-
-
-
-    <label asp-for="@Model.Description" class='form-label'>Description</label>
-        <input type='text' name="Description" value="@Model.Description" class='form-control' placeholder="Enter Book Description" />
-
-    <label asp-for="@Model.Cover_Photo" class='form-label'>Cover Photo</label>
-        <input type='text' name="Cover_Photo" value="@Model.Cover_Photo" class='form-control' placeholder="Enter Book Cover Photo URL" />
-
-    <label asp-for="@Model.AuthorId" class='form-label'>Author Id</label>
-        <input type='text' name="AuthorId" value="@Model.AuthorId" class='form-control' placeholder="Enter Author ID" />
-
-
-
-
-    <div>
-
-        <input type="submit" value="Add Book" class='btn btn-primary form-control' />
-    </div>
-</form>
-</section>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

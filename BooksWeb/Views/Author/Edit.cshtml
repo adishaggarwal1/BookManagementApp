@@ -30,37 +30,49 @@
         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Logout</a>
     </li>
 }
-@using TeamB.BookManagement
-@model Author
+
+@model BooksWeb.ViewModels.EditAuthorViewModel
+
+
+
 
 <h2>Update Author</h2>
 
+        <form asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <!--<label asp-for="Id" class="control-label"></label>-->
+                <input type='hidden' asp-for="Id" class="form-control" readonly />
+                <!--<span asp-validation-for="Id" class="text-danger"></span>-->
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Biography" class="control-label"></label>
+                <input asp-for="Biography" class="form-control" />
+                <span asp-validation-for="Biography" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Photo" class="control-label"></label>
+                <input asp-for="Photo" class="form-control" />
+                <span asp-validation-for="Photo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update Author" class="btn btn-primary" />
+            </div>
+        </form>
 
-<form asp-action="Edit" method="POST">
-
-    <!--<label asp-for="@Model.Id" class='form-label'>Id</label>-->
-    <input type='hidden' name="Id" value="@Model.Id" class='form-control' readonly />
-
-    <label asp-for="@Model.Name" class='form-label'>Name</label>
-    <input type='text' name="Name" value="@Model.Name" class='form-control' />
-
-    
-
-
-    <label asp-for="@Model.Biography" class='form-label'>Biography</label>
-    <input type='text' name="biography" value="@Model.Biography" class='form-control' />
-
-    <label asp-for="@Model.Email" class='form-label'>Email</label>
-    <input type='text' name="email" value="@Model.Email" class='form-control' />
-
-    <label asp-for="@Model.Photo" class='form-label'>Photo</label>
-    <input type='text' name="photo" value="@Model.Photo" class='form-control' />
 
 
 
-
-    <div>
-
-        <input type="submit" value="Update Author" class='btn btn-primary form-control' />
-    </div>
-</form>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
