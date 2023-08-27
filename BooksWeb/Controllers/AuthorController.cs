@@ -58,7 +58,7 @@ namespace BooksWeb.Controllers
         {
             await authorService.UpdateAuthor(author);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("AuthorDetails", new { Id = author.Id });
         }
 
         public async Task<ActionResult> Delete(string id)

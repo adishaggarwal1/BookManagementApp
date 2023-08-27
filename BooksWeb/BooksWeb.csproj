@@ -24,7 +24,6 @@
 
   <ItemGroup>
     <None Include="Views\Author\Add.cshtml" />
-    <None Include="Views\Author\Details.cshtml" />
     <None Include="Views\Author\Edit.cshtml" />
     <None Include="Views\Author\Index.cshtml" />
     <None Include="Views\Book\Add.cshtml" />
