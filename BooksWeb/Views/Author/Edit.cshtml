@@ -14,18 +14,9 @@
         <a class="nav-link text-dark" asp-controller="book" asp-action="add">Add Books</a>
     </li>
 
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-    </li>
 }
 @section NavPartial
     {
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">Profile</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="UserFav">Favorites</a>
-    </li>
     <li class="nav-item">
         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Logout</a>
     </li>
@@ -42,27 +33,27 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <!--<label asp-for="Id" class="control-label"></label>-->
-                <input type='hidden' asp-for="Id" class="form-control" readonly />
+                <input type="text" type='hidden' asp-for="Id" class="form-control" readonly />
                 <!--<span asp-validation-for="Id" class="text-danger"></span>-->
             </div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
+                <input type="text" asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Biography" class="control-label"></label>
-                <input asp-for="Biography" class="form-control" />
+                <input type="text" asp-for="Biography" class="form-control" />
                 <span asp-validation-for="Biography" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Photo" class="control-label"></label>
-                <input asp-for="Photo" class="form-control" />
+                <input type="text" asp-for="Photo" class="form-control" />
                 <span asp-validation-for="Photo" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
+                <input type="Email" asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
