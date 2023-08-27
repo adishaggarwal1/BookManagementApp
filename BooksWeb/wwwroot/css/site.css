@@ -471,6 +471,8 @@ p {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    justify-content: center;
+    align-content: center;
 }
 
 #authorbio {
@@ -516,6 +518,8 @@ p {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    justify-content: center;
+    align-content:center;
 }
 
 #bookdecription {
