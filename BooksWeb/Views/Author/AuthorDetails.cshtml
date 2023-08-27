@@ -41,12 +41,16 @@
     <div id="aboutauthor">
 
         <div id="authorsection">
-            <div>
+           @* <div>*@
                 <div class='col col-md-4' id="authorimg">
-                    <img src="@Model.Author.Photo" class="author-details-photo" />
-                    <h2>@Model.Author.Name</h2>
+                    <div>                    
+                        <img src="@Model.Author.Photo" class="author-details-photo" />
+                    </div>
+                    <div>
+                     <h2 style="text-align:center">@Model.Author.Name</h2>
+                    </div>
                 </div>
-            </div>
+            @*</div>*@
 
             <div class='col col-md-8' id="authorbio">
 
