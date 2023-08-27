@@ -68,9 +68,15 @@ namespace TeamB.BookManagement
             {
                 old.Title = newDetails.Title;
                 old.Description = newDetails.Description;
-                old.Author_Id = newDetails.Author_Id;
+                old.AuthorId = newDetails.AuthorId;
                 old.Cover_Photo = newDetails.Cover_Photo;
             });
+        }
+
+        public async Task<List<Book>> GetBooksByAuthor(string authorId)
+        {
+            var books = await repository.GetAll(b => b.AuthorId == authorId);
+            return books;
         }
     }
 }

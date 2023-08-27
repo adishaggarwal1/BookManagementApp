@@ -1,0 +1,62 @@
+﻿@section NavBar{
+
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="author" asp-action="index">Authors</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="author" asp-action="add">Add Authors</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="book" asp-action="index">Books</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="book" asp-action="add">Add Books</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </li>
+}
+@section NavPartial
+    {
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">Profile</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="UserFav">Favorites</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Logout</a>
+    </li>
+}
+@using TeamB.BookManagement
+@model Review
+
+<h2>Update Review</h2>
+
+
+<form asp-action="Edit" method="POST">
+
+    <input type='hidden' name="Id" value="@Model.Id" class='form-control' readonly />
+    <input type='hidden' name="Reviewer_Email" value="@Model.Reviewer_Email" class='form-control' readonly />
+    <input type='hidden' name="BookId" value="@Model.BookId" class='form-control' readonly />
+
+    <label asp-for="@Model.Title" class='form-label'>Title</label>
+    <input type='text' name="Title" value="@Model.Title" class='form-control' />
+
+    <label asp-for="@Model.Details" class='form-label'>Details</label>
+    <input type='text' name="Details" value="@Model.Details" class='form-control' />
+
+    <label asp-for="@Model.Rating" class='form-label'>Rating</label>
+    <input type='text' name="Rating" value="@Model.Rating" class='form-control' />
+    
+    <!--
+    <label asp-for="@Model.BookId" class='form-label'>Book Id</label>
+    <input type='text' name="AuthorId" value="@Model.BookId" class='form-control' />
+    -->
+
+    <div>
+        <input type="submit" value="Update Review" class='btn btn-primary form-control' />
+    </div>
+</form>

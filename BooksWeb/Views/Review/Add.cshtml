@@ -1,0 +1,62 @@
+﻿@section NavBar{
+
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="author" asp-action="index">Authors</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="author" asp-action="add">Add Authors</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="book" asp-action="index">Books</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="book" asp-action="add">Add Books</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </li>
+}
+@section NavPartial
+    {
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">Profile</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="UserFav">Favorites</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Logout</a>
+    </li>
+}
+
+@using TeamB.BookManagement
+@model Review
+
+<section id="addAuthor">
+    <h2 style="text-align:center;">ADD NEW BOOK</h2>
+
+
+    <form asp-action="Add" method="POST">
+        
+        <label asp-for="@Model.Title" class='form-label'>Title</label>
+        <input type='text' name="Title" value="@Model.Title" class='form-control' placeholder="Enter Review Title" />
+
+        <label asp-for="@Model.Details" class='form-label'>Description</label>
+        <input type='text' name="Details" value="@Model.Details" class='form-control' placeholder="Enter Review Description" />
+
+        <label asp-for="@Model.Rating" class='form-label'>Rating</label>
+        <input type='text' name="Rating" value="@Model.Rating" class='form-control' placeholder="Enter Rating" />
+
+
+        <label asp-for="@Model.Reviewer_Email" class='form-label'>Reviewer_Email</label>
+        <input type='text' name="Reviewer_Email" value="@Model.Reviewer_Email" class='form-control' placeholder="Enter ReviewerEmail" />
+
+        <input type='hidden' name="BookId" value="@Model.BookId" class='form-control' readonly />
+
+        <div>
+            <input type="submit" value="Add Review" class='btn btn-primary form-control' />
+        </div>
+    </form>
+</section>

@@ -18,7 +18,7 @@ namespace TeamB.BookManagement
                 Id = reader["id"].ToString(),
                 Title = reader["title"].ToString(),
                 Description = reader["description"].ToString(),
-                Author_Id = reader["author_id"].ToString(),
+                AuthorId = reader["author_id"].ToString(),
                 Cover_Photo = reader["cover_photo"].ToString()
             };
         }
