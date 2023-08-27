@@ -53,7 +53,7 @@ namespace BooksWeb.Controllers
         {
             await bookService.UpdateBook(book);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("BookDetails", new { Id = book.Id });
         }
 
         public async Task<ActionResult> Delete(string id)

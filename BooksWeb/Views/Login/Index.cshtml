@@ -11,14 +11,31 @@
 
 @model LoginViewModel
 
-<div class="content" id="test">
+<div class="split-container">
+    <div class="left-side" style="margin-top:100px;">
+        <h1 style="color: rgb(62, 188, 234); text-align:center; margin:20px 40%;">Login</h1>
+        <form id="LoginForm" method="POST">
+            <input type="email" id="email" name="email" value="" placeholder="Email" required class='form-control' />
+            <br>
+            <input type="password" id="password" name="password" value="" placeholder="Password" required class='form-control' />
+            <br>
+            <input class='btn btn-primary form-control' type="submit" value="Login" onclick="" asp-controller="Login" asp-action="Validate" />
+            <p style="text-align:center; margin-left:5%"> New Here? <a asp-controller="Register" asp-action="Index">Register Now</a></p>
+        </form>
+    </div>
+    <div class="right-side">
+        <img class="image" src="~/images/ReadingBook2.jpg" alt="Image">
+    </div>
+</div>
+
+@* <div class="content" id="test">
     <h1 style="color: rgb(62, 188, 234);">Login</h1>
     <form id="LoginForm" method="POST">
-        <input type="email" id="email" name="email" placeholder="Email" required class='form-control' />
+        <input type="email" id="email" name="email" value="" placeholder="Email" required class='form-control' />
         <br>
         <input type="password" id="password" name="password" value="" placeholder="Password" required class='form-control' />
         <br>
-        <input id="loginbtn" class='btn btn-primary form-control' type="submit" value="Login" onclick="" asp-controller="Login" asp-action="Validate" />
+        <input class='btn btn-primary form-control' type="submit" value="Login" onclick="" asp-controller="Login" asp-action="Validate" />
         <p> New Here? <a asp-controller="Register" asp-action="Index">Register Now</a></p>
     </form>
-</div>
+</div> *@

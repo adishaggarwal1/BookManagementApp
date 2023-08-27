@@ -14,9 +14,29 @@ html {
 }
 
 body {
-    margin-bottom: 60px;
     background: rgb(7,4,64);
     background: linear-gradient(90deg, rgba(7,4,64,1) 0%, rgba(9,9,121,1) 43%, rgba(63,188,213,1) 100%);
+}
+
+body {
+    opacity: 0;
+    animation: fadeIn 0.7s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+header {
+    position: relative;
+    border: 3.5px solid black;
+    height: 87px;
 }
 
 #navbar {
@@ -45,6 +65,7 @@ body {
 #navbar {
     position: relative;
     font-family: "Bree Serif", serif;
+    height: 80px;
 }
 
     #navbar::before {
@@ -102,12 +123,14 @@ body {
         text-align: center;
         color: black;
         font-size: 2.5rem;
+        font-weight: 700;
     }
 
     #home p {
         text-align: center;
         color: black;
         font-size: 1.3rem;
+        font-weight: 700;
     }
 
     #home .btn {
@@ -139,19 +162,23 @@ body {
     color: white;
     height: fit-content;
     background: black;
+    padding-left: 40%;
 }
 
 #socialhandles {
     display: flex;
+    float: left;
     flex-direction: row;
+    padding-left: 50%;
     gap: 40px;
-    padding-left: 1080px;
-    padding-right: 60px;
     &:hover
-    {
-        cursor: pointer;
-    }
+
+{
+    cursor: pointer;
 }
+
+}
+
 /*.row > * {
     flex-shrink: 0;*/
 /* width: 100%; */
@@ -168,12 +195,71 @@ body {
     border-radius: 20px;
 }
 
-
 .scrolling-wrapper {
     overflow-x: scroll;
-    background: rgb(15,14,34);
-    background: linear-gradient(90deg, rgba(15,14,34,0.6980042016806722) 0%, rgba(36,36,62,1) 43%, rgba(68,127,139,1) 100%);
-    /* overflow-x: hidden;*/
+    background: transparent;
+    overflow-x: hidden;
+    z-index: 1;
+    animation: scroll 10s linear infinite;
+    animation-play-state: paused;
+    transition: animation-play-state 0.3s ease-in-out;
+}
+
+    .scrolling-wrapper:hover {
+        animation-play-state: running;
+    }
+
+#arrowbuttons {
+    position: absolute;
+    top: 65%;
+    left: 49%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+}
+
+#leftarrow,
+#rightarrow {
+    opacity: 0.8;
+    &:hover
+
+{
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+}
+
+#arrowbuttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1280px;
+    z-index: 1;
+}
+
+#leftarrow {
+    opacity: 0.8;
+    &:hover
+
+{
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+}
+
+#rightarrow {
+    opacity: 0.8;
+    &:hover
+
+{
+    cursor: pointer;
+    opacity: 0.5;
+}
+
 }
 
 ::-webkit-scrollbar {
@@ -182,8 +268,8 @@ body {
 }
 
 .card-body {
-    background: rgb(15,14,34);
-    background: radial-gradient(circle, rgba(15,14,34,0.6980042016806722) 0%, rgba(98,136,171,1) 0%, rgba(13,147,173,1) 100%);
+    padding-top: 20px;
+    background-image: linear-gradient(to left top, #2c51a4, #2959a6, #2861a8, #2c68a9, #326fa9);
     text-align: center;
     &:hover
 
@@ -191,22 +277,21 @@ body {
     transform: translateY(-5px);
     box-shadow: none;
     opacity: 0.9;
-    background: rgb(37,154,156);
-    background: linear-gradient(0deg, rgba(37,154,156,1) 0%, rgba(204,164,78,1) 100%);
+    background-image: linear-gradient(to bottom, #2e6fd1, #276ec5, #256cba, #276aad, #2c68a1);
 }
 
 }
 
 .card-block {
     height: 200px;
-    background: rgb(37,154,156);
-    background: linear-gradient(0deg, rgba(37,154,156,1) 0%, rgba(204,164,78,1) 100%);
+    background-image: linear-gradient(to left top, #2c51a4, #2959a6, #2861a8, #2c68a9, #326fa9);
     background-position: center;
     background-size: cover;
     text-align: center;
 }
 
 .card {
+    height: 700px;
     transition: all 0.2s ease-in-out !important;
     &:hover
 
@@ -214,25 +299,37 @@ body {
     transform: translateY(-5px);
     box-shadow: none;
     opacity: 0.9;
-    background: rgb(37,154,156);
-    background: linear-gradient(0deg, rgba(37,154,156,1) 0%, rgba(204,164,78,1) 100%);
+    background-image: linear-gradient(to bottom, #2e6fd1, #276ec5, #256cba, #276aad, #2c68a1);
+}
+
+}
+
+.card-author {
+    transition: all 0.2s ease-in-out !important;
+    &:hover
+
+{
+    transform: translateY(-5px);
+    box-shadow: none;
+    opacity: 0.9;
+    background-image: linear-gradient(to bottom, #2e6fd1, #276ec5, #256cba, #276aad, #2c68a1);
 }
 
 }
 
 .btn-card {
+    background-color: cornflowerblue;
     display: inline-grid;
     margin-left: 15px;
     margin-top: 5px;
     text-align: center;
-    width: 70%;
-    box-shadow: -3px -3px 3px #C850C0;
-    border-radius: 20px;
+    width: 55%;
+    border-radius: 15px;
+    border: cornflowerblue;
 }
 
 .card-1 {
-    background: rgb(15,14,34);
-    background: radial-gradient(circle, rgba(15,14,34,0.6980042016806722) 0%, rgba(98,136,171,1) 0%, rgba(13,147,173,1) 100%);
+    background-image: linear-gradient(to left top, #2c51a4, #2959a6, #2861a8, #2c68a9, #326fa9);
 }
 
 #bookref1 img {
@@ -273,32 +370,37 @@ input[type=submit] {
     width: 20%;
     box-shadow: -3px -3px 3px cornflowerblue;
     border-radius: 20px;
-    margin: 15px 43%;
+    margin: 20px 41%;
 }
 
 input[type=text] {
     background: transparent;
     border: 1px solid white;
-    &:hover
-
-{
-    background-color: white;
-    border: 1px solid white;
 }
 
-}
+    input[type=text]:hover {
+        background-color: white;
+        border: 1px solid white;
+    }
 
+    input[type=text]:not(:placeholder-shown) {
+        background-color: white;
+        border: 1px solid white;
+    }
 
 input[type=date] {
     background: transparent;
     border: 1px solid white;
-    &:hover
-
-{
-    background-color: white;
-    border: 1px solid white;
 }
 
+    input[type=date]:hover {
+        background-color: white;
+        border: 1px solid white;
+    }
+
+input[type=text]:not(:placeholder-shown) {
+    background-color: white;
+    border: 1px solid white;
 }
 
 input[type=email] {
@@ -313,11 +415,32 @@ input[type=email] {
 
 }
 
+input[type=text]:not(:placeholder-shown) {
+    background-color: white;
+    border: 1px solid white;
+}
+
+input[type=password] {
+    background: transparent;
+    border: 1px solid white;
+    &:hover
+
+{
+    background-color: white;
+    border: 1px solid white;
+}
+
+}
+
+input[type=text]:not(:placeholder-shown) {
+    background-color: white;
+    border: 1px solid white;
+}
+
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color: #909;
     font-weight: bold;
 }
-
 
 h2 {
     color: white;
@@ -337,33 +460,6 @@ h1 {
 
 p {
     color: white;
-}
-
-#arrowbuttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 1220px;
-}
-
-#leftarrow {
-    opacity: 0.8;
-    &:hover
-
-{
-    cursor: pointer
-}
-
-}
-
-#rightarrow {
-    opacity: 0.8;
-    &:hover
-
-{
-    cursor: pointer
-}
-
 }
 
 #authorsection {
@@ -411,7 +507,6 @@ p {
     padding-top: 15px;
 }
 
-
 #booksection {
     display: flex;
     flex-direction: row;
@@ -455,4 +550,32 @@ p {
 
 #aboutbook {
     padding-top: 15px;
+}
+
+.split-container {
+    display: flex;
+}
+
+.left-side {
+    width: 50%;
+    padding: 20px;
+}
+
+.right-side {
+    width: 50%;
+}
+
+.image {
+    width: 114.3%;
+    height: 114.4%;
+}
+
+button {
+    width: 20%;
+    box-shadow: -3px -3px 3px cornflowerblue;
+    border-radius: 20px;
+}
+
+h5 {
+    font-weight: 700;
 }
