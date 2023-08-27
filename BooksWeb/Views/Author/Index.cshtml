@@ -68,7 +68,7 @@
                         <h5 class="card-title" style="text-align:center">@author.Name</h5>
                         <p class="card-text" style="text-align:center">Author Biography</p>
                         <div class="">
-                            <a asp-action="details" asp-route-id="@author.Id" class="btn  btn-info btn-card">DETAILS</a>
+                            <a asp-action="authordetails" asp-route-id="@author.Id" class="btn  btn-info btn-card">DETAILS</a>
                             
                             <a asp-action="delete" asp-route-id="@author.Id" class="btn  btn-danger btn-card" onclick="return confirm('⚠️Are you sure you want to delete this item?')">DELETE</a>
                             <a asp-action="edit" asp-route-id="@author.Id" class="btn  btn-warning btn-card ">EDIT</a>

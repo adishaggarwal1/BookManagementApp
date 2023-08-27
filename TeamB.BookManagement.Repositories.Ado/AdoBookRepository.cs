@@ -15,7 +15,7 @@ namespace TeamB.BookManagement.Repositories.Ado
         public async Task<Book> Add(Book book)
         {
             var query = $"insert into books(id,title,description,author_id,cover_photo) " +
-                              $"values('{book.Id}','{book.Title}','{book.Description}','{book.Author_Id}','{book.Cover_Photo}')"; ;
+                              $"values('{book.Id}','{book.Title}','{book.Description}','{book.AuthorId}','{book.Cover_Photo}')"; ;
 
             await db.ExecuteUpdateAsync(query);
 
@@ -34,7 +34,7 @@ namespace TeamB.BookManagement.Repositories.Ado
                 Id = reader["id"].ToString(),
                 Title = reader["title"].ToString(),
                 Description = reader["description"].ToString(),
-                Author_Id = reader["author_id"].ToString(),
+                AuthorId = reader["author_id"].ToString(),
                 Cover_Photo = reader["cover_photo"].ToString()
             };
         }
@@ -67,7 +67,7 @@ namespace TeamB.BookManagement.Repositories.Ado
                 var query = $"update books set " +
                             $"title='{oldBook.Title}', " +
                             $"description='{oldBook.Description}', " +
-                            $"author_id='{oldBook.Author_Id}', " +
+                            $"author_id='{oldBook.AuthorId}', " +
                             $"cover_photo='{oldBook.Cover_Photo}' " +
                             $"where id='{oldBook.Id}'"; ;
 

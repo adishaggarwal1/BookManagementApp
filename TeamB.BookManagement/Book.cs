@@ -10,7 +10,8 @@
 
         public string Description { get; set; }
 
-        public string Author_Id { get; set; }
+        public Author Author { get; set; }
+        public string AuthorId { get; set; }
 
         public override string ToString()
         {

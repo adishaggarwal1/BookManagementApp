@@ -33,11 +33,11 @@ namespace TeamB.BookManagement.Repositories.EFRepository
         public async Task<List<Book>> GetAll(Func<Book, bool> predicate)
         {
             await Task.CompletedTask;
-            var q = from book in context.Books
+            /*var q = from book in context.Books
                     where predicate(book)
-                    select book;
+                    select book;*/
 
-            return q.ToList();
+            return context.Books.Where(predicate).ToList();
         }
 
         public async Task<Book> GetById(string id)

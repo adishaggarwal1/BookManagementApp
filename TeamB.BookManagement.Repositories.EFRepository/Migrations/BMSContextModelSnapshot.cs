@@ -51,9 +51,9 @@ namespace TeamB.BookManagement.Repositories.EFRepository.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Author_Id")
+                    b.Property<string>("AuthorId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Cover_Photo")
                         .IsRequired()
@@ -68,6 +68,8 @@ namespace TeamB.BookManagement.Repositories.EFRepository.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AuthorId");
 
                     b.ToTable("Books");
                 });
@@ -126,6 +128,17 @@ namespace TeamB.BookManagement.Repositories.EFRepository.Migrations
                     b.HasKey("Email");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("TeamB.BookManagement.Book", b =>
+                {
+                    b.HasOne("TeamB.BookManagement.Author", "Author")
+                        .WithMany()
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Author");
                 });
 
             modelBuilder.Entity("TeamB.BookManagement.Review", b =>

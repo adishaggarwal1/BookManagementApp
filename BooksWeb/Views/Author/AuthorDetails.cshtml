@@ -1,0 +1,117 @@
+﻿@section NavBar{
+
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="author" asp-action="index">Authors</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="author" asp-action="add">Add Authors</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="book" asp-action="index">Books</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="book" asp-action="add">Add Books</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </li>
+}
+@section NavPartial
+    {
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">Profile</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="UserFav">Favorites</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Logout</a>
+    </li>
+}
+@model BooksWeb.ViewModels.AuthorDetailsViewModel
+
+@{
+    ViewData["Title"] = "View";
+}
+
+
+<div>
+    <div id="aboutauthor">
+
+        <div id="authorsection">
+            <div>
+                <div class='col col-md-4' id="authorimg">
+                    <img src="@Model.Author.Photo" class="author-details-photo" />
+                    <h2>@Model.Author.Name</h2>
+                </div>
+            </div>
+
+            <div class='col col-md-8' id="authorbio">
+
+                <div id="editbio">
+                    <h3 style="color:white">Biography</h3>
+                    <button type="button" class="btn btn-primary ">Edit</button>
+                </div>
+
+
+                <div id="authordetailsbox">
+                    <p style="color:black">@Model.Author.Biography</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <!--<div id="listofbooks" style="color: white">
+        <h3>Books</h3>
+        <ul>
+            @foreach (var book in Model.Books)
+            {
+                <li>@book.Title</li>
+            }
+        </ul>
+    </div>-->
+
+    <div id="listofbooks">
+        <h2 style="text-align:center">BOOKS WRITTEN</h2>
+        <div id="arrowbuttons">
+
+            <div>
+                <svg id="leftarrow" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                    <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
+                </svg>
+            </div>
+
+            <div>
+                <svg id="rightarrow" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                    <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                </svg>
+            </div>
+
+        </div>
+
+        <div class="scrolling-wrapper row flex-row flex-nowrap mt-0 pb-0 pt-2" id="horizontalscroll">
+
+            @foreach (var book in Model.Books)
+            {
+                <div class='col col-md-3'>
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="@book.Cover_Photo" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title" style="text-align:center">@book.Title</h5>
+                            <p class="card-text" style="text-align:center">BOOK DESCRIPTION</p>
+                            <a asp-action="bookdetails" asp-controller="book" asp-route-id="@book.Id" class="btn  btn-info btn-card">DETAILS</a>
+                            <a asp-action="delete" asp-controller="book" asp-route-id="@book.Id" class="btn  btn-danger btn-card" onclick="return confirm('Are you sure you want to delete this item?')">DELETE</a>
+                            <a asp-action="edit" asp-controller="book" asp-route-id="@book.Id" class="btn  btn-warning btn-card">EDIT</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

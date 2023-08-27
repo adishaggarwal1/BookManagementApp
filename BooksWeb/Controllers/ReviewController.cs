@@ -27,18 +27,24 @@ namespace BooksWeb.Controllers
         }
 
         [HttpGet]
-        public ViewResult Add()
+        public ViewResult Add(string bookId, string reviewerEmail)
         {
-            return View(new Review());
+            var review = new Review()
+            {
+                BookId = bookId,
+                //Reviewer_Email = reviewerEmail
+            };
+            //ViewBag.BookId = bookId;
+            return View(review);
         }
 
         [HttpPost]
         public async Task<ActionResult> Add(Review review)
         {
-            if (ModelState.IsValid)
+            if(ModelState.ErrorCount==1 && ModelState["Book"].Errors.Count == 1)
             {
                 await reviewService.AddReview(review);
-                return RedirectToAction("Index");
+                return RedirectToAction("BookDetails", "Book", new { Id = review.BookId } );
             }
             return View(review);
         }
@@ -55,13 +61,13 @@ namespace BooksWeb.Controllers
         {
             await reviewService.UpdateReview(review);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("BookDetails", "Book", new { Id = review.BookId });
         }
 
-        public async Task<ActionResult> Delete(int id)
+        public async Task<ActionResult> Delete(int id, string bookId)
         {
             await reviewService.DeleteReview(id);
-            return RedirectToAction("Index");
+            return RedirectToAction("BookDetails", "Book", new { Id = bookId });
         }
     }
 }
