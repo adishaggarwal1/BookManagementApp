@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeamB.Data", "TeamB.Data\Te
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeamB.Utils", "TeamB.Utils\TeamB.Utils.csproj", "{2D9EAF98-020C-4CFF-B052-B1F431AE36B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamB.BookManagement.Repositories.EFRepository", "TeamB.BookManagement.Repositories.EFRepository\TeamB.BookManagement.Repositories.EFRepository.csproj", "{2B245294-9468-492B-9D55-A09C4FA40076}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeamB.BookManagement.Repositories.EFRepository", "TeamB.BookManagement.Repositories.EFRepository\TeamB.BookManagement.Repositories.EFRepository.csproj", "{2B245294-9468-492B-9D55-A09C4FA40076}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
