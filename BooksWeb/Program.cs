@@ -9,7 +9,7 @@ namespace BooksWeb
             builder.Services.ConfigureServices();
 
             var app = builder.Build();
-
+            
             // Configure the HTTP request pipeline.
             app.ConfigureMiddlewares();
 

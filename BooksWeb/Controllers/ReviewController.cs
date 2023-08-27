@@ -32,7 +32,7 @@ namespace BooksWeb.Controllers
             var review = new Review()
             {
                 BookId = bookId,
-                //Reviewer_Email = reviewerEmail
+                Reviewer_Email = HttpContext.Session.GetString("logedin_user")
             };
             //ViewBag.BookId = bookId;
             return View(review);

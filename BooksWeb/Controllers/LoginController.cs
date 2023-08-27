@@ -21,9 +21,18 @@ namespace BooksWeb.Controllers
             var user = await userService.GetUserById(email);
             if(user == null || password != user.Password)
             {
+               
                 return RedirectToAction("Index", "Register"); // Redirecting to register page
             }
+            HttpContext.Session.SetString("logedin_user", email);
             return RedirectToAction("Index", "Author");
+        }
+
+        public async Task<ActionResult> logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Login");
+
         }
 
     }

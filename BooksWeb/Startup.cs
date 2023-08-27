@@ -19,7 +19,7 @@ namespace BooksWeb
             services.AddTransient<IBookService, PersistentBookService>();
             services.AddTransient<IReviewService, PersistentReviewService>();
             services.AddTransient<IUserService, PersistentUserService>();
-
+            services.AddSession();
             return services;
         }
 
@@ -77,6 +77,8 @@ namespace BooksWeb
             });
 
             app.UseStaticFiles();
+
+            app.UseSession();
 
             app.UseRouting();
 
