@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TeamB.BookManagement.Repositories.EFRepository;
 
@@ -10,9 +11,11 @@ using TeamB.BookManagement.Repositories.EFRepository;
 namespace TeamB.BookManagement.Repositories.EFRepository.Migrations
 {
     [DbContext(typeof(BMSContext))]
-    partial class BMSContextModelSnapshot : ModelSnapshot
+    [Migration("20230827120148_AuthorValidations")]
+    partial class AuthorValidations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -55,6 +58,7 @@ namespace TeamB.BookManagement.Repositories.EFRepository.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Cover_Photo")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
